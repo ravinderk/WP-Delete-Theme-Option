@@ -18,7 +18,7 @@ function ravs_themeDeactivationFx( ) {
 		
 		$all_options_of_theme = $wpdb->get_results(
 				$wpdb->prepare(
-					"SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{%s}%'",
+					"SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%%%s%%'",
 					$theme_name
 				)
 		); // get all option
