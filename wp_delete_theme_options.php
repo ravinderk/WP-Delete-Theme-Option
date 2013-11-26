@@ -11,10 +11,10 @@ Author URI: http://blogdesignstudio
 function ravs_themeDeactivationFx( ) {
 	
 	// check user deleting theme or not
-	if( ( isset( $_POST['action'] ) && $_POST['action'] ==='delete' ) && ( isset( $_POST['stylesheet'] ) && $_POST['stylesheet'] !='' ) ){
+	if( ( isset( $_GET['action'] ) && $_GET['action'] ==='delete' ) && ( isset( $_GET['stylesheet'] ) && $_GET['stylesheet'] !='' ) ){
 	
 		global $wpdb;
-		$theme_name = $_POST['stylesheet']; // theme directory name base for all option names
+		$theme_name = $_GET['stylesheet']; // theme directory name base for all option names
 		
 		$all_options_of_theme = $wpdb->get_results("SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{$theme_name}%'"); // get all option
 	
