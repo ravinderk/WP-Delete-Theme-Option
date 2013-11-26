@@ -12,7 +12,7 @@ function ravs_themeDeactivationFx( $oldname, $oldtheme=false ) {
 	// update_option( 'ravs_theme', trim( str_replace( ' ', '_', strtolower( $oldname ) ) ) );
 	
 	global $wpdb;
-	$theme_name = str_replace( ' ', '_', strtolower( $oldname ) ); // theme name
+	$theme_name = str_replace( ' ', '_', trim( strtolower( $oldname ) ) ); // theme name
 	
 	$all_options_of_theme = $wpdb->get_results("SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{$theme_name}%'"); // get all option
 
