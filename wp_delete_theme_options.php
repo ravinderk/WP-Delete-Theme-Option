@@ -9,7 +9,7 @@ Author URI: http://blogdesignstudio
 */
 
 function ravs_themeDeactivationFx( $oldname, $oldtheme=false ) {
-	// update_option( 'ravs_theme', str_replace( ' ', '_', strtolower( $oldname ) ) );
+	// update_option( 'ravs_theme', trim( str_replace( ' ', '_', strtolower( $oldname ) ) ) );
 	
 	global $wpdb;
 	$theme_name = str_replace( ' ', '_', strtolower( $oldname ) ); // theme name
