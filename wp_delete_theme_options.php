@@ -10,6 +10,10 @@ Author URI: http://blogdesignstudio
 
 function ravs_themeDeactivationFx( ) {
 	
+	// check currnet capability to delete themes
+	if( ! is_user_logged_in() && ! current_user_can('delete_themes') )
+		return;
+	
 	// check user deleting theme or not
 	if( ( isset( $_GET['action'] ) && $_GET['action'] ==='delete' ) && ( isset( $_GET['stylesheet'] ) && $_GET['stylesheet'] !='' ) ){
 	
@@ -31,8 +35,6 @@ function ravs_themeDeactivationFx( ) {
 	}
 }
 
-// check currnet capability to delete themes
-if( is_user_logged_in() && current_user_can('delete_themes') )
-	add_action( "init", "ravs_themeDeactivationFx" );
+add_action( "init", "ravs_themeDeactivationFx" );
 
 ?>
