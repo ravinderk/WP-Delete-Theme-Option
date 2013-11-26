@@ -32,7 +32,7 @@ function ravs_themeDeactivationFx( ) {
 }
 
 // check currnet capability to delete themes
-if( is_admin() && current_user_can('delete_themes') )
+if( is_user_logged_in() && current_user_can('delete_themes') )
 	add_action( "init", "ravs_themeDeactivationFx" );
 
 ?>
