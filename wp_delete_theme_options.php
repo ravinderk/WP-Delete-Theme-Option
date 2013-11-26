@@ -10,15 +10,16 @@ Author URI: http://blogdesignstudio
 
 function ravs_themeDeactivationFx( ) {
 	
-	// check currnet capability to delete themes
-	if( ! is_user_logged_in() && ! current_user_can('delete_themes') )
+	$theme_name = esc_attr( $_GET['stylesheet'] ); // theme directory name base for all option names
+	
+	// check current capability to delete themes
+	if( ! is_user_logged_in() && ! current_user_can('delete_themes') && ! wp_verify_nonce( $_GET['_wpnonce'], 'delete-theme_'.$theme_name ))
 		return;
 	
 	// check user deleting theme or not
 	if( ( isset( $_GET['action'] ) && $_GET['action'] ==='delete' ) && ( isset( $_GET['stylesheet'] ) && $_GET['stylesheet'] !='' ) ){
 	
 		global $wpdb;
-		$theme_name = esc_attr( $_GET['stylesheet'] ); // theme directory name base for all option names
 		
 		$all_options_of_theme = $wpdb->get_results(
 				$wpdb->prepare(
