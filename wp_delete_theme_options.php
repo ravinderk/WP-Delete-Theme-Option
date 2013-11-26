@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Delete Theme Options
+Plugin Name: WP Delete Theme Options
 Plugin URI: http://blogdesignstudio
 Description: delete all theme specific options
 Author: Mayank Gupta / Ravinder Kumar
