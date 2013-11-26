@@ -31,7 +31,8 @@ function ravs_themeDeactivationFx( ) {
 	}
 }
 
-if( is_admin() )
+// check currnet capability to delete themes
+if( is_admin() && current_user_can('delete_themes') )
 	add_action( "init", "ravs_themeDeactivationFx" );
 
 ?>
