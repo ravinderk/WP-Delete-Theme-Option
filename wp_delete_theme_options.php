@@ -16,7 +16,12 @@ function ravs_themeDeactivationFx( ) {
 		global $wpdb;
 		$theme_name = $_GET['stylesheet']; // theme directory name base for all option names
 		
-		$all_options_of_theme = $wpdb->get_results("SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{$theme_name}%'"); // get all option
+		$all_options_of_theme = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{%s}%'",
+					$theme_name
+				)
+		); // get all option
 	
 		if( ! empty( $all_options_of_theme ) ){
 			foreach ($all_options_of_theme as $option) {
