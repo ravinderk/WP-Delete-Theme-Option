@@ -15,3 +15,6 @@ Twenty Twelve assume option name like twentytwelve_*
 Plugin generates option name from theme's directory name.
 
 Thanks to http://wordpress.stackexchange.com/questions/124499/remove-settings-if-theme-is-deleted/12452a
+
+
+Note: Under production :)
