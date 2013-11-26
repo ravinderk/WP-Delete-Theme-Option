@@ -14,7 +14,7 @@ function ravs_themeDeactivationFx( ) {
 	if( ( isset( $_POST['action'] ) && $_POST['action'] ==='delete' ) && ( isset( $_POST['stylesheet'] ) && $_POST['stylesheet'] !='' ) ){
 	
 		global $wpdb;
-		$theme_name = str_replace( ' ', '_', trim( strtolower( $oldname ) ) ); // theme name
+		$theme_name = $_POST['stylesheet']; // theme directory name base for all option names
 		
 		$all_options_of_theme = $wpdb->get_results("SELECT option_name FROM $wpdb->options WHERE option_name LIKE  '%{$theme_name}%'"); // get all option
 	
